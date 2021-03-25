@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 import os
@@ -27,9 +27,9 @@ class UserModule(db.Model):
     # TODO
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(30), unique=True, nullable=False)
-    email = db.Column(db.String(50), unique=True, nullable=False)
-    password = db.Column(db.String(30))
+    name = db.Column(db.String(100), unique=True, nullable=False)
+    email = db.Column(db.String(100), unique=True, nullable=False)
+    password = db.Column(db.String(100))
 
     # initialization
     # when create the object
@@ -57,11 +57,14 @@ class UserModule(db.Model):
 def find(cls, name):
     return cls.filter_by(name == name).first()
 
+# web server
+@app.route("/")
+def index():
+    return render_template("sample.html")
+
 
 if __name__ == '__main__':
     if not os.path.exists('data.sqlite'):
         db.create_all()
     
-    # store one user's Information
-    user1 = UserModule('clsied','cwuan@connect.ust.hk','thisispassword')
-    user1.save()
+    app.run(host='localhost',debug=True)

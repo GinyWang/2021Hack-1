@@ -1,17 +1,37 @@
 # 2021Hack
-Hackathon
 
-Jason丟討論的上來
+Jason東西丟上來
+
+## FrontEnd
+
+->HTTP  
+->CSS
 
 
-FrontEnd
-->HTTP
-->CSS   
+```bash
+comment
+```
 
-BackEnd
-->Flak
+## BackEnd
+
+->Flask  
 ->Python
 
-DataBase
-->MySQL
+```bash
+comment
+```
 
+## DataBase
+->MySQL  
+
+```bash
+comment
+```
+
+## Requirement
+
+```bash
+pip install...
+```
+## License
+[MIT](https://choosealicense.com/licenses/mit/)

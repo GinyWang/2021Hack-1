@@ -4,18 +4,14 @@ Hackathon
 Jason丟討論的上來
 
 
-
-
-
-
-
-FrontEnd 
+FrontEnd
 ->HTTP
-->CSS  ----------
-                 |
-BackEnd <--------
+->CSS   
+|
+BackEnd
 ->Flak
-->Python  -------
-                 |
-DataBase <-------
+->Python
+
+DataBase
+->MySQL
 

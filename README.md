@@ -8,33 +8,30 @@ Jason東西丟上來
 ->CSS
 
 
-```bash
 comment
-```
+
 
 ## BackEnd
 
 ->Flask  
 ->Python
 
-```bash
 Progress:  
 
 2021/03/25
 1. Connect Database with Flask (app.py)  
-```
+
 
 ## DataBase
-->SQLAlchemy
+->SQLite
 
-```bash
 Progress:  
 
 2021/03/25
-1. Finished Database Model with SQLAlchemy (app.py)  
-2. Connect Database with Flask (app.py)  
+1. Finished Database Model with SQLite (app.py)  
+2. Connect Database with Flask (app.py)
+3. Sample webpage for Flask testing (sampel.html)  
 
-```
 ### Recommend Download for DataBase LookUp
 
 [SQLite Browser](https://sqlitebrowser.org/)

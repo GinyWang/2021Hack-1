@@ -1,6 +1,10 @@
 # 2021Hack
 
-Jason東西丟上來
+## Notice & TODO
+
+Jason東西丟上來  
+HTML全部丟在templates裡面  
+先創.py file把可以寫的功能先設計
 
 ## FrontEnd
 
@@ -19,7 +23,10 @@ comment
 Progress:  
 
 2021/03/25
-1. Connect Database with Flask (app.py)  
+1. Connect Database with Flask (app.py)
+2. Sample webpage for Flask testing (sampel.html)  
+3. Build Server (app.py)
+
 
 
 ## DataBase
@@ -30,7 +37,6 @@ Progress:
 2021/03/25
 1. Finished Database Model with SQLite (app.py)  
 2. Connect Database with Flask (app.py)
-3. Sample webpage for Flask testing (sampel.html)  
 
 ### Recommend Download for DataBase LookUp
 

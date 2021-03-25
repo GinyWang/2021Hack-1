@@ -55,8 +55,7 @@ Progress:
 ```bash
 pip install flask==1.1.2
 pip install python==3.7.3
-pip install SQLAlchemy==2.5.1  
-pip intall
+pip install SQLAlchemy==2.5.1
 ```  
 
 ## License

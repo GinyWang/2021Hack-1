@@ -8,11 +8,18 @@ HTML全部丟在templates裡面
 
 ## FrontEnd
 
-->HTTP  
+->HTTP 
 ->CSS
 
+1. 優惠選擇頁面 
+2. 房間列表頁面
+3. 開房頁面
+4. chatbox
+5. 活動結束後的推薦項目頁面
 
 comment
+以react js為主
+
 
 
 ## BackEnd

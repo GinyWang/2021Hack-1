@@ -2,14 +2,20 @@
 
 ## Notice & TODO
 
-Jason東西丟上來  
+
 HTML全部丟在templates裡面  
-先創.py file把可以寫的功能先設計
+
+## For Laibon 
+
+1. 有兩種大集合的資料要存 1.使用者的資料 2.優惠的資料  
+
+2. 可以用下面SQLite的Link，下載之後看看Database裡面的形式
+
+3. 可以先看前端網頁裡面的button如何跟Flask連結  
+ex ( html "submit button" 如何連到 Flask 函式 save() )  
+可以上網搜尋 flask with frontend button
 
 ## FrontEnd
-
-
-
 ->Html 
 ->CSS
 ->JS

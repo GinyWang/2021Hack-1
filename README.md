@@ -15,9 +15,13 @@ HTML全部丟在templates裡面
 ->JS
 
 comment（很重要）
-顏色之後再統一，先藍色為主\n
+
+顏色之後再統一，先藍色為主
+
 記得是手機的screen size
+
 4/4 當天把前三個解決，先不用丟上來，截圖有東西就好 
+
 css html js file 命名好一點
 
 1. 優惠選擇頁面 (bungee)

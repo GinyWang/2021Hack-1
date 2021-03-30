@@ -11,9 +11,9 @@ HTML全部丟在templates裡面
 
 2. 可以用下面SQLite的Link，下載之後看看Database裡面的形式
 
-3. 可以先看前端網頁裡面的button如何跟Flask連結  
+3. ~~可以先看前端網頁裡面的button如何跟Flask連結  
 ex ( html "submit button" 如何連到 Flask 函式 save() )  
-可以上網搜尋 flask with frontend button
+可以上網搜尋 flask with frontend button~~ (已完成)
 
 ## FrontEnd
 ->Html 
@@ -55,8 +55,10 @@ Progress:
 2021/03/25
 1. Connect Database with Flask (app.py)
 2. Sample webpage for Flask testing (sampel.html)  
-3. Build Server (app.py)
+3. Build Server (app.py)  
 
+2021/03/30
+1. Finished Frontend to Backend to Database Code for Laibon
 
 
 ## DataBase
@@ -68,6 +70,9 @@ Progress:
 1. Finished Database Model with SQLite (app.py)  
 2. Connect Database with Flask (app.py)
 
+2021/03/30
+1. Finished Frontend to Backend to Database Code for Laibon
+
 ### Recommend Download for DataBase LookUp
 
 [SQLite Browser](https://sqlitebrowser.org/)
@@ -76,7 +81,7 @@ Progress:
 ## Requirement
 
 ```bash
-pip install flask==1.1.2
+pip install Flask==1.1.2
 pip install python==3.7.3
 pip install Flask-SQLAlchemy==2.5.1
 ```  

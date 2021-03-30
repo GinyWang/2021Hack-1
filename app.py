@@ -1,15 +1,13 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 import os
-
 app = Flask(__name__)
 
 # get current directory
 current_dir = os.path.abspath(os.path.dirname(__file__))
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
     os.path.join(current_dir, 'data.sqlite')
@@ -52,17 +50,26 @@ class UserModule(db.Model):
     # first assign to attribute then call the function
     def update(self):
         db.session.commit()
+    
+
 
 # find by name
 def find(cls, name):
     return cls.filter_by(name == name).first()
 
 # web server
-@app.route("/")
+@app.route("/",methods = ['POST', 'GET'])
 def index():
-    return render_template("sample.html")
+    if request.method == 'POST':
+        name = request.form.get('username')
+        email = request.form.get('email')
+        password = request.form.get('password')
+        User = UserModule(name,email,password)
+        User.save()
+    return render_template("index.html")
 
-
+        
+    
 if __name__ == '__main__':
     if not os.path.exists('data.sqlite'):
         db.create_all()

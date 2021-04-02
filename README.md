@@ -100,8 +100,9 @@ css html js file 命名好一點
       -用好看一點的list呈現 (可上網找其他code直接用)  
       -[這裡](https://www.youtube.com/watch?v=fxY1q4SCB64)
 2. 房間列表頁面 (jason)
-      -一般的grid layout呈現 (一排兩個) (可上網找其他code直接用)  
-      -[這裡](https://www.youtube.com/watch?v=WV6u_6ZNWkQ)
+      -說明：此頁面為進入某項優惠後，選擇想要加入的出遊團的房間列表
+      -進度：完成html初版  
+      -下一步：編寫每頁可以共用的navigation bar，待此頁需要的div都確認後開始css地獄
 3. 開房頁面 (giny)
       -一般的form呈現   
       -[這裡](https://www.youtube.com/watch?v=zT62eVxShsY)

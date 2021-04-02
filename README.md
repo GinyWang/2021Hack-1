@@ -17,7 +17,7 @@ HTML全部丟在templates裡面
 
 5. ~~學flask~~(先跳，先看第6點)
 
-6. 參考[這個stack](https://stackoverflow.com/questions/51669102/how-to-pass-data-to-html-page-using-flask)和[這個flask tutorial](https://www.youtube.com/watch?v=QnDWIZuWYW0&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH&index=2&ab_channel=CoreySchafer)和[這個jinja語法庫](https://jinja.palletsprojects.com/en/2.11.x/)寫
+6. 參考[這個stackoverflow](https://stackoverflow.com/questions/51669102/how-to-pass-data-to-html-page-using-flask)和[這個flask tutorial](https://www.youtube.com/watch?v=QnDWIZuWYW0&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH&index=2&ab_channel=CoreySchafer)和[這個jinja語法庫](https://jinja.palletsprojects.com/en/2.11.x/)寫
 ```bash
 @app.route("/room_list",methods = ['POST', 'GET'])
 
@@ -28,7 +28,7 @@ def room_list():
     return render_template("room_list.html")
 ```
 和改寫
-```bash(html)
+```html
     <div class="grid-container">
         <div class="grid-item">
             <div class="title">Let's have some fun in subway!</div>
@@ -40,7 +40,7 @@ def room_list():
     </div>
 ```
 成類似
-```bash(jinja)
+```html
 {% for user in users %}
   <li><a href="{{ user.url }}">{{ user.username }}</a></li>
 {% endfor %}

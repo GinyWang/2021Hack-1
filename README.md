@@ -17,7 +17,7 @@ HTML全部丟在templates裡面
 
 5. ~~學flask~~(先跳，先看第6點)
 
-6. 參考[這個stackoverflow](https://stackoverflow.com/questions/51669102/how-to-pass-data-to-html-page-using-flask)和[這個flask tutorial](https://www.youtube.com/watch?v=QnDWIZuWYW0&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH&index=2&ab_channel=CoreySchafer)和[這個jinja語法庫](https://jinja.palletsprojects.com/en/2.11.x/)寫
+6. 參考[這個stackoverflow](https://stackoverflow.com/questions/51669102/how-to-pass-data-to-html-page-using-flask)和[這個flask tutorial](https://www.youtube.com/watch?v=QnDWIZuWYW0&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH&index=2&ab_channel=CoreySchafer)和[這個jinja語法庫](https://jinja.palletsprojects.com/en/2.11.x/)和[這個裡面的Querying Records](https://flask-sqlalchemy.palletsprojects.com/en/2.x/queries/)寫
 ```bash
 @app.route("/room_list",methods = ['POST', 'GET'])
 

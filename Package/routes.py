@@ -27,8 +27,13 @@ def login():
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
-        user = User(username,password)
-        db.session.add(user)
-        db.session.commit()
-        return redirect(url_for('index'))
+        return redirect(url_for("room_list"))
     return render_template("login.html")
+
+@app.route("/room_list",methods = ['POST', 'GET'])
+
+#TODO
+def room_list():
+    pass
+
+    return render_template("room_list.html")

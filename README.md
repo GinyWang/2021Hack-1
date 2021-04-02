@@ -13,9 +13,38 @@ HTML全部丟在templates裡面
 
 3. ~~查看前端網頁裡面的button如何跟Flask連結~~ (laibon已完成)
 
-4. 了解cwuan寫的comment和新的package架構  
+4. ~~了解cwuan寫的comment和新的package架構~~ (laibon已完成)
 
-5. 學flask
+5. ~~學flask~~(先跳，先看第6點)
+
+6. 參考[這個stack](https://stackoverflow.com/questions/51669102/how-to-pass-data-to-html-page-using-flask)和[這個flask tutorial](https://www.youtube.com/watch?v=QnDWIZuWYW0&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH&index=2&ab_channel=CoreySchafer)和[這個jinja語法庫](https://jinja.palletsprojects.com/en/2.11.x/)寫
+```bash
+@app.route("/room_list",methods = ['POST', 'GET'])
+
+#TODO
+def room_list():
+    pass
+
+    return render_template("room_list.html")
+```
+和改寫
+```bash(html)
+    <div class="grid-container">
+        <div class="grid-item">
+            <div class="title">Let's have some fun in subway!</div>
+            <div class="date">2021 April 23 16:00</div>
+            <div class="host">Host By: Philip Lai</div>
+            <div class="rate">Host Rate: 1 star</div>
+            <button type="button" class="join btn-primary">Join</button>
+        </div>
+    </div>
+```
+成類似
+```bash(jinja)
+{% for user in users %}
+  <li><a href="{{ user.url }}">{{ user.username }}</a></li>
+{% endfor %}
+```
 
 ## For Laibon 的整理 這是濃縮 認真看 不然我一定扁你 
 

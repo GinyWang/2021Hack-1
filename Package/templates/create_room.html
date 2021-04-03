@@ -1,0 +1,61 @@
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" Content="Microsoft Visual Studio">
+<TITLE>Create Room</TITLE>
+</HEAD>
+<BODY>
+<h1>Please fill out the form to create a room !</h1>
+<form action="CreateEvent.html" method="post" id="EventCreate">
+    <p>
+        <label for="Ename" size="30">Event name:</label><br>
+        <input Name="Ename" type="text" autofocus required><br>
+    </p>
+    <p>
+        <label for="Etime">Time:&nbsp</label><br>
+        <input Name="Etime" type="datetime-local" required><br>
+    </p>
+    <p>
+        <label for="ELoc">Location:</label><br>
+        <select Name="ELoc" required>
+            <option disabled>(District)</option>
+            <option value="Kwai Tsing">Kwai Tsing</option>
+            <option value="North">North</option>
+            <option value="Sai Kung">Sai Kung</option>
+            <option value=">Sha Tin">Sha Tin</option>
+            <option value="Tai Po">Tai Po</option>
+            <option value="Tsuen Wan">Tsuen Wan</option>
+            <option value="Tuen Mu">Tuen Mun</option>
+            <option value="Yuen Long">Yuen Long</option>
+            <option value="Kowloon City">Kowloon City</option>
+            <option value="Kwun Tong">Kwun Tong</option>
+            <option value="Sham Shui Po">Sham Shui Po</option>
+            <option value="Wong Tai Sin">Wong Tai Sin</option>
+            <option value="Yau Tsim Mong">Yau Tsim Mong</option>
+            <option value="Central and Western">Central and Western</option>
+            <option value="Eastern">Eastern</option>
+            <option value="Southern">Southern</option>
+            <option value="Wan Chai">Wan Chai</option>
+            <option value="Islands">Islands</option>
+        </select>
+    </p>
+    <br>
+    <p>
+        <label for="NumPeople">Required munber of People</label><br>
+        <input type="number"  name="MinNumPeople" min="0">
+        <span> ~ </span>
+        <input type="number"  name="MaxNumPeople">
+        <br>
+    </p>
+    <p>
+        <label for="Descrip">Event Description</label><br>
+        <textarea rows="5" cols="80" name="descrip" form="EventCreate"></textarea><br>
+    </p>
+    <p>
+        <input type="submit" value="Submit">&nbsp&nbsp<input type="reset" value="Reset">
+    </p>
+
+
+</form>
+
+</BODY>
+</HTML>

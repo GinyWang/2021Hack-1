@@ -2,7 +2,7 @@ from flask import render_template, request ,flash, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from Package import app, db
 from Package.models import User, Room
-from jinja2 import Template
+
 
 
 # web server

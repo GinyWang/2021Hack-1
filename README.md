@@ -157,6 +157,10 @@ Progress:
 2021/04/01
 1. Reformat Backend and Database Structure (Module format to Package format)
 
+2021/04/03
+1. Flask route to room_list create_room  
+2. Finished Post in database display  
+
 ## DataBase
 
 
@@ -173,6 +177,11 @@ Progress:
 1. Reformat Backend and Database Structure (Module format to Package format)
 2. Database extends to User (db.Model) and Post (db.Model), many to many relationship   
 
+2021/04/03  
+1. Database stored columns(label) update  
+2. Dummy data created (dummy.py)  
+3. Re name Model (Post to Room)  
+
 ## Useful Link
 ### Recommend Download for DataBase LookUp
 [SQLite Browser](https://sqlitebrowser.org/)
@@ -188,10 +197,11 @@ pip install Flask-SQLAlchemy==2.5.1
 ## File Dependency and Tree Chart
 
 │  app.py  
+│  dummy.py  
 │  
 ├─.vscode  
 │      settings.json  
-│
+│  
 ├─Package  
 │  │  data.sqlite  
 │  │  models.py  
@@ -199,15 +209,13 @@ pip install Flask-SQLAlchemy==2.5.1
 │  │  __init__.py  
 │  │  
 │  ├─templates  
+│  │      create_room.html  
 │  │      index.html  
 │  │      login.html  
+│  │      room_list.html  
 │  │      script.js  
 │  │  
 │  └─__pycache__  
-│          forms.cpython-37.pyc  
-│          models.cpython-37.pyc  
-│          routes.cpython-37.pyc  
-│          __init__.cpython-37.pyc  
 │  
 └─static  
 ## License

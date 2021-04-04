@@ -1,7 +1,11 @@
-from Package import db
+from Package import db,login_manager
 from sqlalchemy.orm import relationship
 from sqlalchemy import ForeignKey
+from flask_login import UserMixin
 
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 # User room Assocation Table
 # https://docs.sqlalchemy.org/en/14/orm/basic_relationships.html#many-to-many
  
@@ -11,7 +15,7 @@ user_room = db.Table('user_room',
 )
 
 # Model of User
-class User(db.Model):
+class User(db.Model,UserMixin):
 
     # Object User's attribute #
     id = db.Column(db.Integer, primary_key=True)    # unique id for the Object User
@@ -58,4 +62,3 @@ class Room(db.Model):
         User.query.get(self.hostid).roomnum += 1    # notice that at here we dont need to db.session.commit()
                                                     # since it will db.session.commit() after the Object Room is created
                                                     # in dummy.py 
-        

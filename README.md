@@ -15,103 +15,17 @@ HTML全部丟在templates裡面
 
 4. ~~了解cwuan寫的comment和新的package架構~~ (laibon已完成)
 
-5. ~~學flask~~(先跳，先看第6點)
+5. 學flask
 
-6. 參考[這個stackoverflow](https://stackoverflow.com/questions/51669102/how-to-pass-data-to-html-page-using-flask)和[這個flask tutorial](https://www.youtube.com/watch?v=QnDWIZuWYW0&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH&index=2&ab_channel=CoreySchafer)和[這個jinja語法庫](https://jinja.palletsprojects.com/en/2.11.x/)和[這個裡面的Querying Records](https://flask-sqlalchemy.palletsprojects.com/en/2.x/queries/)寫
-```bash
-@app.route("/room_list",methods = ['POST', 'GET'])
+6. ~~參考[這個stackoverflow](https://stackoverflow.com/questions/51669102/how-to-pass-data-to-html-page-using-flask)  
+和[flask tutorial](https://youtu.be/QnDWIZuWYW0)  
+和[jinja語法庫](https://jinja.palletsprojects.com/en/2.11.x/)  
+和[Querying Records](https://flask-sqlalchemy.palletsprojects.com/en/2.x/queries/)寫~~ 
+(laibon已完成)  
+7. 理解[靜態檔使用方式](https://mrnegativetw.github.io/Python-3-%E7%AD%86%E8%A8%98/Flask/Python3%E7%AD%86%E8%A8%98-%E7%94%A8Flask%E7%9A%84url_for%E9%80%A3%E7%B5%90%E5%88%B0static%E4%B8%AD%E7%9A%84%E5%AD%90%E8%B3%87%E6%96%99%E5%A4%BE/)  
+和[Flask-Login](https://youtu.be/CSHx6eCkmv0)  
+和[Flask使用者基本資料](https://youtu.be/803Ei2Sq-Zs)
 
-#TODO
-def room_list():
-    pass
-
-    return render_template("room_list.html")
-```
-和改寫
-```html
-    <div class="grid-container">
-        <div class="grid-item">
-            <div class="title">Let's have some fun in subway!</div>
-            <div class="date">2021 April 23 16:00</div>
-            <div class="host">Host By: Philip Lai</div>
-            <div class="rate">Host Rate: 1 star</div>
-            <button type="button" class="join btn-primary">Join</button>
-        </div>
-    </div>
-```
-成類似
-```html
-{% for user in users %}
-  <li><a href="{{ user.url }}">{{ user.username }}</a></li>
-{% endfor %}
-```
-
-## For Laibon 的整理 這是濃縮 認真看 不然我一定扁你 
-
-### 1.為何要寫成package(套件)而不是module(模組)  
-
-module(模組):  
-
-將很多function分開成a.py b.py c.py，主程式app.py直接引用其函式  
-
-package(套件):  
-
-就是一個容器(資料夾)，包含了多個模組 (舉例我們這裡包括後端、資料庫的模組) 
-
-並且擁有__init__.py檔案 (此檔案可以當成套件核心，主程式app.py用來直接引用，並藉由__init__.py間接使用模組)  
-
-![示意圖](https://miro.medium.com/max/301/1*baq1t0g9N4tKXBB8nfJ2KQ.png)
-
-### 2.Flask重點  
-
-```bash
-@app.route("/index", methods = ['POST','GET'] )
-```  
-
-主路徑 http://localhost:5000  
-http://localhost:5000 + 引號裡面 = 網址  
-http://localhost:5000 + index = http://localhost:5000/index
-
-methods  
-接受前端用哪些方法向後端索取資料
-
-
-```bash
-render_template("index.html") 
-``` 
-跳轉至index.html  
-
-
-```bash
-request.form.get('password')
-  
-<input type='text' name='password'>  
-```
-獲取 name = 'password'裡的值  
-
-
-```bash
-redirect(url_for('index'))
-```
-url_for('index')為獲取 http://localhost:5000 + index 的地址  
-redirect()重新連結至此網站
-
-### 3.Database model relationship (Many-to-Many)  
-
-舉例說今天有兩種Data，學生和課程  
-
-一對多: 一個學生選了多門課  
-一對一: 一個學生選了一門課  
-多對一: 多個學生選了同門課  
-多對多: 多個學生選了多門課  
-
-多對多的意義就在，學生可以知道他修了什麼課，相對的該門課也可以知道有哪些學生修了這門課，我們可以藉由一個學生上的其中一門課，找到一樣上這門課的其他學生
-
-![示意圖](https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Databases-ManyToManyWJunction.jpg/1200px-Databases-ManyToManyWJunction.jpg)
-
-
-### 4.Laibon的延伸資料
-[Flask tutorial Part1-6](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH&index=1)  
 
 ## FrontEnd
 

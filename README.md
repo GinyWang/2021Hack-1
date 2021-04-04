@@ -161,6 +161,9 @@ Progress:
 1. Flask route to room_list create_room  
 2. Finished Post in database display  
 
+2021/04/04
+1. Finished Login Logout Function
+
 ## DataBase
 
 
@@ -181,6 +184,7 @@ Progress:
 1. Database stored columns(label) update  
 2. Dummy data created (dummy.py)  
 3. Re name Model (Post to Room)  
+4. Re inherit to double class
 
 ## Useful Link
 ### Recommend Download for DataBase LookUp
@@ -193,30 +197,9 @@ Progress:
 pip install Flask==1.1.2
 pip install python==3.7.3
 pip install Flask-SQLAlchemy==2.5.1
+pip install Flask-Login
 ```  
 ## File Dependency and Tree Chart
 
-│  app.py  
-│  dummy.py  
-│  
-├─.vscode  
-│      settings.json  
-│  
-├─Package  
-│  │  data.sqlite  
-│  │  models.py  
-│  │  routes.py  
-│  │  __init__.py  
-│  │  
-│  ├─templates  
-│  │      create_room.html  
-│  │      index.html  
-│  │      login.html  
-│  │      room_list.html  
-│  │      script.js  
-│  │  
-│  └─__pycache__  
-│  
-└─static  
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

@@ -1,40 +1,66 @@
-from flask import render_template, request ,flash, redirect, url_for
+from flask import render_template, request , redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import login_user, current_user
 from Package import app, db
 from Package.models import User, Room
+import os
 
-# main page
+# TODO
+# test logout function by login again
+# test create room to ensure new one is login
 
+
+# index page
 @app.route("/", methods = ['POST', 'GET'])
 def index():
-    return redirect(url_for("room_list"))
+    return render_template("discount_select.html") # actually the index page will route "discount_select"
 
+# discount_select page
+@app.route("/discount_select", methods = ['POST', 'GET'])
+def discount_select():
+    return render_template("discount_select.html")
 
+# login page
 @app.route("/login", methods = ['POST', 'GET'])
 def login():
-    if current_user.is_authenticated:
-        return redirect(url_for('room_list'))
-    if request.method == 'POST':
+    if current_user.is_authenticated:   # is_authenticated return True if now have a login current_user
+        return redirect(url_for('room_list'))   # TODO to check which page to direct
 
-        username = request.form.get('username')
-        password = request.form.get('password')
+    if request.method == 'POST':  # if POST
+        if request.form['submit'] == 'sign_in':    # if get login submit
+            username = request.form.get('account') # get username
+            password = request.form.get('passwd') # get password
+            user = User.query.filter_by(name=username).first()  # get User Object
+            if user == None:
+                print(user.password, password)
+                return redirect(url_for("login"))
+            else:
+                if user.password == password:   # password correct 
+                    print('success')
+                    login_user(user)    # login
+                    return redirect(url_for("room_list"))   # TODO to check which page to direct
+                print('fail')
 
-        user = User.query.filter_by(name=username).first()
-        if user.password == password:
-            login_user(user)
-        
-            return redirect(url_for("room_list"))
+
+        elif request.form['submit'] == 'sign_up':
+            new_username = request.form.get('new_acc')
+            new_password = request.form.get('new_passwd')
+            user = User(new_username, new_password)
+            db.session.add(user)
+            db.session.commit()
+            return redirect(url_for("login"))
+
     return render_template("login.html")
 
 @app.route("/room_list",methods = ['POST', 'GET'])
 def room_list():
-    
-    if request.method == 'POST':
-        if request.form['action'] == 'login':
-            return redirect(url_for("login"))
-        elif request.form['action'] == 'create':
-            return redirect(url_for("create_room"))
+
+    # TODO ensure if there is login logout in each navigation bar
+    # if request.method == 'POST':
+    #     if request.form['action'] == 'login':
+    #         return redirect(url_for("login"))
+    #     elif request.form['action'] == 'create':
+    #         return redirect(url_for("create_room"))
 
     obj_R = Room.query.order_by(Room.id).all()
     data_pass = [

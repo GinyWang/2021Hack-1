@@ -1,9 +1,8 @@
 from flask import render_template, request , redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import login_user, current_user
+from flask_login import login_user, current_user, logout_user
 from Package import app, db
 from Package.models import User, Room
-import os
 
 # TODO
 # test logout function by login again
@@ -32,14 +31,11 @@ def login():
             password = request.form.get('passwd') # get password
             user = User.query.filter_by(name=username).first()  # get User Object
             if user == None:
-                print(user.password, password)
                 return redirect(url_for("login"))
             else:
                 if user.password == password:   # password correct 
-                    print('success')
                     login_user(user)    # login
                     return redirect(url_for("room_list"))   # TODO to check which page to direct
-                print('fail')
 
 
         elif request.form['submit'] == 'sign_up':
@@ -82,16 +78,17 @@ def create_room():
         return redirect(url_for("login"))
     if request.method == 'POST':
         if request.form['submit'] == 'Submit':
-            event = request.form.get('Ename')
-            time = request.form.get('Etime')
-            location = request.form.get('ELoc')
+            event = request.form.get('EvName')
+            date = request.form.get('EvDate')
+            time = request.form.get('EvTime')
+            distype = request.form.get('EvType')
+            location = request.form.get('EvLoc')
             pplneed = request.form.get('NumPeople')
-            description = request.form.get('descrip')
-            
-            # dummy poster
-            room = Room(event,time,location,description,pplneed,current_user.id)
+            description = request.form.get('EvDescr')
+            room = Room(event,date,time,location,description,pplneed,distype,current_user.id)
             current_user.rooms.append(room)
             db.session.commit()
+
             return redirect(url_for("room_list"))
     return render_template("create_room.html")
 

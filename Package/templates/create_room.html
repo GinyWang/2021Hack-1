@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
     <META NAME="GENERATOR" Content="Microsoft Visual Studio">
-    <link href="{{url_for('static',filename='create_room/create_room.css')}}" rel="stylesheet">
+    <link href="create_room.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Adamina">
@@ -17,7 +17,7 @@
         <h2 class="text-center m-5">Please fill out the form to create a room !</h2>
     
     
-    <form action="{{url_for('create_room')}}" method="post" id="CreateEvent">
+    <form action="CreateEvent.html" method="post" id="CreateEvent">
         <div class="form-group">
             <label for="EvName" size="30">Event name:</label><br>
             <input Name="EvName" type="text" autofocus required class="form-control"><br>
@@ -42,14 +42,7 @@
         </div>
 
 
-        <!-- <div class="form-group">
-            <label for="EvType">Discounts type:</label><br>
-            <select Name="EvType" required class="form-control">
-                <option disabled>(Type)</option>
-                <option value="Accommodations">Accommodations</option>
-                <option value="Tickets">Tickets</option>
-                <option value="Cusines">Cusines</option>
-        </div> -->
+
 
         <div class="form-group">
             <label for="EvLoc">Location:</label><br>
@@ -77,8 +70,18 @@
         </div>
 
         <div class="form-group">
+            <label for="EvType">Discount Type:</label><br>
+            <select Name="EvType" required class="form-control">
+                <option disabled>(Type)</option>
+                <option value="Accommondations">Accommondations</option>
+                <option value="Tickets">Tickets</option>
+                <option value="Cuisines">Cuisines</option>
+            </select>
+        </div>
+
+        <div class="form-group">
             <label for="NumPeople">Required number of People</label><br>
-            <input type="number" name="NumPeople" min="2" class="form-control">
+            <input type="number" name="NumPeople" min="0" class="form-control">
         </div>
 
         <div class="form-group">
@@ -100,7 +103,7 @@
 
     </form>
 </div>
-<script type="text/javascript" src="{{url_for('static',filename='create_room/create_room.js')}}"></script>
+<script type="text/javascript" src="create_room.js"></script>
 
 </BODY>
 </HTML>

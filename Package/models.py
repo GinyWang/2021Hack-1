@@ -40,21 +40,25 @@ class Room(db.Model):
     # Object User's attribute #
     id = db.Column(db.Integer, primary_key = True)    # unique id for the Object Room
     event = db.Column(db.String(100), nullable = False)   # non-unique event for the Object Room
+    date = db.Column(db.String(100), nullable = False)  # non-unique event date for the Object Room
     time = db.Column(db.String(100), nullable = False)  # non-unique event time for the Object Room
     location = db.Column(db.String(100), nullable = False) # non-unique event place for the Object Room
     description = db.Column(db.Text, nullable = False)    # non-unique description for the Object Room
     pplneed = db.Column(db.Integer, nullable = False)   # non-unique number of people needed for the Object Room, constant
     pplnow = db.Column(db.Integer, nullable = False)    # non-unique number of people now in the Object Room
+    distype = db.Column(db.String(100), nullable = False)   # non-unique type of discount now in the Object Room
     hostid = db.Column(db.Integer,nullable = False)   # non-unique id of host of the Object Room
     isfull = db.Column(db.Boolean, nullable = False)    # non-unique isfull of the Object Room
     # initialization
-    def __init__(self,event,time,location,description,pplneed,hostid):
+    def __init__(self,event,date,time,location,description,pplneed,distype,hostid):
         self.event = event  # create Object Room with event intialized
+        self.date = date    # create Object Room with event date intialized
         self.time = time    # create Object Room with event time intialized
         self.location = location    # create Object Room with event location initialized
         self.description = description  # create Object Room with description intialized
         self.pplneed = pplneed  # create Object rRoom with people needed intialized
         self.pplnow = 1 # default number of people now in Object Room
+        self.distype = distype  # create Object Room with discount type intialized
         self.hostid = hostid # create Object Room with people needed intialized
         self.isfull = False # default Boolean of iffull in Object Room
 

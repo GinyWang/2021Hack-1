@@ -14,7 +14,7 @@ if __name__ == '__main__':
     db.create_all()
 
     # User parameters
-    name_list = ['Malaikah Wood','Elaina Talley','Kishan Doherty','Eddison Weston','Rhona Hensley',
+    name_list = ['admin','Elaina Talley','Kishan Doherty','Eddison Weston','Rhona Hensley',
     'Yassin Charles','Donald Noel','Winnie Mclean','Vivaan Vincent','Maia Whitmore',
     'Jazmin Espinosa','Mischa Lake','Natan Mills','Liya Harwood','Milena Hunt',
     'Kailum Durham','Giorgia Lutz','Aleksander Roberson','Lylah Shelton','Layla-Rose Whiteley']
@@ -28,41 +28,46 @@ if __name__ == '__main__':
 
     # Room parameters   
     event_list = ['event1','event2','event3','event4','event5']
+    
+    date_list = ['2021-05-12','2021-04-12','2021-12-01','2031-04-23','2023-04-21']
+
+    time_list = ['01:21','01:32','11:12','11:41','01:12']
+
+    location_list = ['Yuen Long','Kwun Tong','Tsuen Wan','Sai Kung','Kwai Tsing']
+
+    pplneed_list = [5,3,7,4,6]
 
     description_list = ['description1','description2','description3','description4','description5']
 
-    pplneed_list = [5,3,7,4,6]
-    
-    time_list = ['2021/04/12/3pm','2021/04/16/8pm','2021/04/14/3pm','2021/04/12/6pm','2021/04/12/5pm']
+    type_list = ['Accommodations'.'Accommodations','Tickets','Tickets','Cusines']
 
-    location_list = ['Yuen Long','Kwun Tong','Tsuen Wan','Sai Kung','Kwai Tsing']
 
     for index in range(20):
         db.session.add(User(name_list[index],password_list[index]))
         db.session.commit()
     
-    user = User.query.filter_by(name='Malaikah Wood').first()
+    user = User.query.filter_by(name='admin').first()
     user.rooms.append(
-        Room(event_list[0],time_list[0],location_list[0],description_list[0],pplneed_list[0],user.id)
+        Room(event_list[0],date_list[0],time_list[0],location_list[0],description_list[0],pplneed_list[0],type_list[0],user.id)
         )
 
     user = User.query.filter_by(name='Winnie Mclean').first()
     user.rooms.append(
-        Room(event_list[1],time_list[1],location_list[1],description_list[1],pplneed_list[1],user.id)
+        Room(event_list[1],date_list[1],time_list[1],location_list[1],description_list[1],pplneed_list[1],type_list[1],user.id)
         )
 
     user = User.query.filter_by(name='Kishan Doherty').first()
     user.rooms.append(
-        Room(event_list[2],time_list[2],location_list[2],description_list[2],pplneed_list[2],user.id)
+        Room(event_list[2],date_list[2],time_list[2],location_list[2],description_list[2],pplneed_list[2],type_list[2],user.id)
         )
 
     user = User.query.filter_by(name='Giorgia Lutz').first()
     user.rooms.append(
-        Room(event_list[3],time_list[3],location_list[3],description_list[3],pplneed_list[3],user.id)
+        Room(event_list[3],date_list[3],time_list[3],location_list[3],description_list[3],pplneed_list[3],type_list[3],user.id)
         )
 
     user = User.query.filter_by(name='Rhona Hensley').first()
     user.rooms.append(
-        Room(event_list[4],time_list[4],location_list[4],description_list[4],pplneed_list[4],user.id)
+        Room(event_list[4],date_list[4],time_list[4],location_list[4],description_list[4],pplneed_list[4],type_list[4],user.id)
         )
     db.session.commit()

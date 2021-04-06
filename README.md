@@ -22,7 +22,7 @@ HTML全部丟在templates裡面
 和[jinja語法庫](https://jinja.palletsprojects.com/en/2.11.x/)  
 和[Querying Records](https://flask-sqlalchemy.palletsprojects.com/en/2.x/queries/)寫~~ 
 (laibon已完成)  
-7. 理解[靜態檔使用方式](https://mrnegativetw.github.io/Python-3-%E7%AD%86%E8%A8%98/Flask/Python3%E7%AD%86%E8%A8%98-%E7%94%A8Flask%E7%9A%84url_for%E9%80%A3%E7%B5%90%E5%88%B0static%E4%B8%AD%E7%9A%84%E5%AD%90%E8%B3%87%E6%96%99%E5%A4%BE/)  
+7. ~~理解[靜態檔使用方式](https://mrnegativetw.github.io/Python-3-%E7%AD%86%E8%A8%98/Flask/Python3%E7%AD%86%E8%A8%98-%E7%94%A8Flask%E7%9A%84url_for%E9%80%A3%E7%B5%90%E5%88%B0static%E4%B8%AD%E7%9A%84%E5%AD%90%E8%B3%87%E6%96%99%E5%A4%BE/)  
 和[Flask-Login](https://youtu.be/CSHx6eCkmv0)  
 和[Flask使用者基本資料](https://youtu.be/803Ei2Sq-Zs)
 

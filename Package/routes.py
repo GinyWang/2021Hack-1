@@ -12,7 +12,7 @@ from Package.models import User, Room
 # index page
 @app.route("/", methods = ['POST', 'GET'])
 def index():
-    return render_template("discount_select.html") # actually the index page will route "discount_select"
+    return redirect(url_for('login_out')) # actually the index page will route "login_out"
 
 # discount_select page
 @app.route("/discount_select", methods = ['POST', 'GET'])
@@ -20,22 +20,22 @@ def discount_select():
     return render_template("discount_select.html")
 
 # login page
-@app.route("/login", methods = ['POST', 'GET'])
-def login():
-    if current_user.is_authenticated:   # is_authenticated return True if now have a login current_user
-        return redirect(url_for('room_list'))   # TODO to check which page to direct
-
+@app.route("/login_out", methods = ['POST', 'GET'])
+def login_out():
+    # if current_user.is_authenticated:   # is_authenticated return True if now have a login current_user
+    #     logout_user()
+    #     return redirect(url_for('discount_select'))   # TODO to check which page to direct
     if request.method == 'POST':  # if POST
         if request.form['submit'] == 'sign_in':    # if get login submit
             username = request.form.get('account') # get username
             password = request.form.get('passwd') # get password
             user = User.query.filter_by(name=username).first()  # get User Object
             if user == None:
-                return redirect(url_for("login"))
+                return redirect(url_for("login_out"))
             else:
                 if user.password == password:   # password correct 
                     login_user(user)    # login
-                    return redirect(url_for("room_list"))   # TODO to check which page to direct
+                    return redirect(url_for("discount_select"))   # TODO to check which page to direct
 
 
         elif request.form['submit'] == 'sign_up':
@@ -44,38 +44,58 @@ def login():
             user = User(new_username, new_password)
             db.session.add(user)
             db.session.commit()
-            return redirect(url_for("login"))
+            return redirect(url_for("login_out"))
 
     return render_template("login.html")
 
-@app.route("/room_list",methods = ['POST', 'GET'])
-def room_list():
+@app.route("/room_list", defaults = {'distype':''}, methods = ['POST', 'GET'])
+@app.route("/room_list/<distype>", methods = ['POST', 'GET'])
+def room_list(distype):
+    
+    Room_list = []
+    if request.method == 'POST':
+        if request.form.get('type'):
+            Room_list = Room.query.filter_by(distype = request.form['type']).all()
+        
+            
+        # room id
+        if request.form.get('join'):
+            identity = request.form.get('join')
+            room = Room.query.filter_by(id=identity).first()
+            room.pplnow += 1
+            current_user.rooms.append(room)
+            db.session.commit()
 
-    # TODO ensure if there is login logout in each navigation bar
-    # if request.method == 'POST':
-    #     if request.form['action'] == 'login':
-    #         return redirect(url_for("login"))
-    #     elif request.form['action'] == 'create':
-    #         return redirect(url_for("create_room"))
-
-    obj_R = Room.query.order_by(Room.id).all()
-    data_pass = [
-        {"event" :obj.event,
-        "location": obj.location,
-        "time":obj.time,
-        "name":User.query.filter_by(id=obj.hostid).first().name,
-        "rate":User.query.filter_by(id=obj.hostid).first().rate
+            return redirect(url_for('chatbox',roomid=identity))
+    if len(distype) :
+        Room_list = Room.query.filter_by(distype = distype).all()
+    if not len(Room_list) :
+        Room_list = Room.query.all()
+    
+    data = [
+        {"event" : room.event,
+        "date": room.date,
+        "time": room.time,
+        "location": room.location,
+        "pplnow": room.pplnow,
+        "pplneed": room.pplneed,
+        "hostname": User.query.filter_by(id = room.hostid).first().name,
+        "hostrate": User.query.filter_by(id = room.hostid).first().rate,
+        "id" : room.id
         }
-        for obj in obj_R
-        ]
-    return render_template("room_list.html", data = data_pass)
+        for room in Room_list
+    ]
+    
+    return render_template("room_list.html", data = data)
+    
 
 
-@app.route("/create_room",methods = ['POST', 'GET'])
+@app.route("/create_room", methods = ['POST', 'GET'])
 def create_room():
     # if not login then redirect to login page
     if not current_user.is_authenticated:
-        return redirect(url_for("login"))
+        return redirect(url_for("login_out"))
+
     if request.method == 'POST':
         if request.form['submit'] == 'Submit':
             event = request.form.get('EvName')
@@ -89,10 +109,79 @@ def create_room():
             current_user.rooms.append(room)
             db.session.commit()
 
-            return redirect(url_for("room_list"))
+            return redirect(url_for("room_list", distype = distype))
     return render_template("create_room.html")
 
-@app.route("/logout", methods = ['POST', 'GET'])
-def logout():
-    logout_user()
-    return redirect(url_for("room_list"))
+@app.route("/chatbox", defaults = {'roomid':''}, methods = ['POST', 'GET'])
+@app.route("/chatbox/<roomid>", methods = ['POST', 'GET'])
+def chatbox(roomid):
+
+
+    room = Room.query.filter_by(id = roomid).first()
+    raw_chat = room.chat
+    split_chat = []
+    if raw_chat != None:
+        split_chat = raw_chat.split("\n")
+    else:
+        split_chat = raw_chat
+    data = []
+    for chat in split_chat:
+        idx = chat.find(':',)
+        chat_id = int(chat[:idx])
+        is_mychat = False
+        if chat_id == current_user.id:
+            is_mychat = True
+        chat_content = chat[idx+1:]
+        data.append((is_mychat,chat_content))
+    
+    if request.method == 'POST':
+        chat = request.form['chat']
+        if len(raw_chat) == 0:
+            room.chat = str(current_user.id) + ":" + chat
+        else:
+            room.chat = raw_chat + '\n' +str(current_user.id) + ":" + chat
+        db.session.commit() 
+
+    return render_template("chatbox.html", data = data, event = room.event)
+
+@app.route("/room_record", methods = ['POST', 'GET'])
+def room_record():
+
+    if not current_user.is_authenticated:
+        return redirect(url_for('login_out'))
+
+    if request.method == 'POST':
+        identity = request.form.get('enter')
+        return redirect(url_for('chatbox',roomid = identity))
+    
+    Room_list = []
+    Room_list = current_user.rooms
+
+    data = [
+        {"event" : room.event,
+        "date": room.date,
+        "time": room.time,
+        "location": room.location,
+        "pplnow": room.pplnow,
+        "pplneed": room.pplneed,
+        "hostname": User.query.filter_by(id = room.hostid).first().name,
+        "hostrate": User.query.filter_by(id = room.hostid).first().rate,
+        "id" : room.id
+        }
+        for room in Room_list
+    ]      
+    # if not len(Room_list):
+    #     data = [
+    #     {"event" : "N/A",
+    #     "date": "N/A",
+    #     "time": "N/A",
+    #     "location": "N/A",
+    #     "pplnow": "N/A",
+    #     "pplneed": "N/A",
+    #     "hostname": "N/A",
+    #     "hostrate": "N/A",
+    #     "id" : "N/A"
+    #     }
+    # ]
+    
+    return render_template("room_record.html",data = data)

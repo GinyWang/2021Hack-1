@@ -1,0 +1,59 @@
+{% include 'navigation.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Level Chat-Box UI</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'chatbox/chatbox.css')}}">
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- chat box -->
+        <div class="chat-box">
+            <!-- client -->
+            <div class="client">
+                <div class="client-info">
+                    <h2>{{event}}</h2>
+                    <p>online</p>
+                </div>
+            </div>
+
+            <!-- main chat section -->
+            <div class="chats" id="chats">
+                {% for chat in data %}
+                    {% if chat[0] is true %}
+                        <div class="my-chat">{{chat[1]}}</div>
+                    
+
+                    {% else %}
+                        <div class="client-chat">{{chat[1]}}</div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+            <!-- input field section -->
+            <form action= "{{url_for('chatbox')}}" method="POST">
+            <div class="chat-input">
+                <input type="text" placeholder="Enter Message" id="typing" name='chat'/>
+                <button class="send-btn" id="send" type ='submit' name = 'send' value="send">
+                    <img src="{{url_for('static', filename = 'chatbox/image/send.png')}}" alt="send-btn">
+                </button>
+            </div>
+            </form>
+        </div>
+
+    </div>
+
+    <script src="{{url_for('static', filename = 'chatbox/jquery-3.4.1.min.js')}}"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+    <script src="{{url_for('static', filename = 'chatbox/chatbox.js')}}"></script>
+</body>
+
+</html>

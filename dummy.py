@@ -14,7 +14,7 @@ if __name__ == '__main__':
     db.create_all()
 
     # User parameters
-    name_list = ['admin','Elaina Talley','Kishan Doherty','Eddison Weston','Rhona Hensley',
+    name_list = ['admin','admin2','Kishan Doherty','Eddison Weston','Rhona Hensley',
     'Yassin Charles','Donald Noel','Winnie Mclean','Vivaan Vincent','Maia Whitmore',
     'Jazmin Espinosa','Mischa Lake','Natan Mills','Liya Harwood','Milena Hunt',
     'Kailum Durham','Giorgia Lutz','Aleksander Roberson','Lylah Shelton','Layla-Rose Whiteley']
@@ -27,47 +27,59 @@ if __name__ == '__main__':
 
 
     # Room parameters   
-    event_list = ['event1','event2','event3','event4','event5']
+    event_list = ['LKF Hotel','PizzaHutt Hotel','Diseny','Ocean Park','KFC',
+    'HALL22222','Conference Lodge','McDonald','Burger King', 'SUbWAY']
     
-    date_list = ['2021-05-12','2021-04-12','2021-12-01','2031-04-23','2023-04-21']
+    date_list = ['2021-05-12','2021-04-18','2021-12-01','2031-04-23','2023-04-21',
+    '2023-06-01','2021-12-31','2021-05-13','2021-04-15','2021-09-01']
 
-    time_list = ['01:21','01:32','11:12','11:41','01:12']
+    time_list = ['01:21','01:32','11:12','11:41','01:12',
+    '05:13','05:17','11:16','10:41','07:12']
 
-    location_list = ['Yuen Long','Kwun Tong','Tsuen Wan','Sai Kung','Kwai Tsing']
+    location_list = ['Yuen Long','Kwun Tong','Tsuen Wan','Sai Kung','Kwai Tsing',
+    'Sai Kung','Kwun Tong','Yuen Long','Kwun Tong','Tsuen Wan']
 
-    pplneed_list = [5,3,7,4,6]
+    pplneed_list = [5,3,7,4,6,
+    5,3,7,8,4]
 
-    description_list = ['description1','description2','description3','description4','description5']
+    description_list = ['Come on','Go Go Go','Hey there!','SUPER!!!','LetGo',
+    'SLEEP!','SLEEEEEEEP Zzzz','Come here','Go Yoloooooooo','Eaaaaatttttt',]
 
-    type_list = ['Accommodations'.'Accommodations','Tickets','Tickets','Cusines']
+    type_list = ['Accommodations','Accommodations','Tickets','Tickets','Cuisines',
+    'Accommodations','Accommodations','Cuisines','Cuisines','Cuisines']
 
+    chat_list = ['1:How are you\n1:Let us sleep',
+    '1:Hey there\n1:Let us gogogo',
+    '4:Hi\n4:Let us have fun',
+    '17:Yolooooo',
+    '1:Hey there\n1:Group togther\n1:My name is admin\n1:hehe',
+    '18:Yolooooo\n18:Why is it accommodation',
+    '1:Yo man\n1:Typing is so boring',
+    '18:YOHOLOLO\n18:Let us go eattttttt',
+    '3:End',
+    '2:I am admin2'
+    ]
 
     for index in range(20):
         db.session.add(User(name_list[index],password_list[index]))
         db.session.commit()
     
-    user = User.query.filter_by(name='admin').first()
-    user.rooms.append(
-        Room(event_list[0],date_list[0],time_list[0],location_list[0],description_list[0],pplneed_list[0],type_list[0],user.id)
+    def room_input(hostname,ind):
+        user = User.query.filter_by(name=hostname).first()
+        user.rooms.append(
+            Room(event_list[ind],date_list[ind],time_list[ind],location_list[ind],
+            description_list[ind],pplneed_list[ind],type_list[ind],user.id,
+            chat_list[ind])
         )
 
-    user = User.query.filter_by(name='Winnie Mclean').first()
-    user.rooms.append(
-        Room(event_list[1],date_list[1],time_list[1],location_list[1],description_list[1],pplneed_list[1],type_list[1],user.id)
-        )
-
-    user = User.query.filter_by(name='Kishan Doherty').first()
-    user.rooms.append(
-        Room(event_list[2],date_list[2],time_list[2],location_list[2],description_list[2],pplneed_list[2],type_list[2],user.id)
-        )
-
-    user = User.query.filter_by(name='Giorgia Lutz').first()
-    user.rooms.append(
-        Room(event_list[3],date_list[3],time_list[3],location_list[3],description_list[3],pplneed_list[3],type_list[3],user.id)
-        )
-
-    user = User.query.filter_by(name='Rhona Hensley').first()
-    user.rooms.append(
-        Room(event_list[4],date_list[4],time_list[4],location_list[4],description_list[4],pplneed_list[4],type_list[4],user.id)
-        )
+    room_input('admin',0)
+    room_input('admin',1)
+    room_input('Eddison Weston',2)
+    room_input('Giorgia Lutz',3)
+    room_input('admin',4)
+    room_input('Aleksander Roberson',5)
+    room_input('admin',6)
+    room_input('Aleksander Roberson',7)
+    room_input('Kishan Doherty',8)
+    room_input('admin2',9)
     db.session.commit()

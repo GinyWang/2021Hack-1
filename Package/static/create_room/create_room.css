@@ -1,21 +1,53 @@
+var nowDate;
+var EvDate = document.getElementById('EvDate');
+var EvTime = document.getElementById('EvTime');
+var warn = document.querySelector('.warn');
+EvDate.addEventListener('input', setTimeRange);
+EvTime.addEventListener('invalid', function () {
+    EvTime.value = '';
+   
+   }
+)
 
-form {
-    font-family: 'Adamina','Georgia','Times New Roman','Times';
-    width:80%;
-    margin:0 auto 2rem;
+window.onload = function () {
+    init();
+    
+};
+function init(){
+    setDateMin();
 }
-input{
-    border:0;
+
+function setDateMin(){
+    var today = new Date();
+    var yyyy = today.getFullYear();
+    var mon = today.getMonth() + 1; //January is 0!
+    if (mon < 10) { mon = '0' + mon; }
+    var dd = today.getDate(); 
+    if (dd < 10) { dd = '0' + dd; }
+    nowDate = yyyy + '-' + mon + '-' + dd;
+    EvDate.setAttribute("min", nowDate)
 }
-.btn:hover{
-    cursor:pointer;
-    background-color:lightblue;
+
+function setTimeRange() {
+    if (EvDate.value === EvDate.min) {
+        //alert('today!');
+        setTimeMin();
+    }
+    else {
+        EvTime.removeAttribute("min");
+        EvTime.removeAttribute("max")
+    }
+
 }
-/*input:invalid {
-    border: 1px solid red;
-}*/
-.warn {
-    color: red;
-    font-size: 0.3px;
-    display:none;
+function setTimeMin() {
+    var today = new Date();
+    var hh = today.getHours();
+    if (hh < 10) { hh = '0' + hh; }
+    var min = today.getMinutes();
+    if (min < 10) { min = '0' + min; }
+    var nowTime = hh + ':' + min;
+    EvTime.setAttribute("min", nowTime);
+    EvTime.setAttribute("max", "23:59")
 }
+
+ 

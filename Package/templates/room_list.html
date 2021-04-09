@@ -1,3 +1,4 @@
+{% include 'navigation.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,31 +6,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>roomList</title>
-    
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="{{url_for('static', filename = 'room_list/room_list.css')}}">
-    <link rel = "stylesheet" href="{{url_for('static', filename = 'room_list/style.css')}}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel = "stylesheet" href="{{url_for('static', filename = 'room_list/room_list.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-    <div class="grid-container">
-        <div class="grid-item">
-                {% for item in data %}
-                <div class="event">{{item.event}}</div>
-                
-                <div class="info">
-                    <div class="location">{{item.location}}</div>
-                    <div class="time">{{item.time}}</div>
-                    <div class="rate">Host Rate: {{item.rate}}</div>
-                    <div class="host">Host By: {{item.name}}</div>
-                    <button type="button" class="join btn-primary">Join</button>
-                </div>
-                    
-                    
-                    
-                {% endfor %}
-        </div>  
-    </div>
     
+    <form action="{{url_for('room_list')}}" method="post" id="CreateEvent">
+    <div class="grid-container" id="container">
+        {% for item in data %}
+        <div class="grid-item"> 
+            <div class="bg">&nbsp</div>
+            <div class="event">{{item.event}}</div>
+            <div class="info">
+                <div class="date">{{item.date}}&nbsp</div>
+                <div class="time">{{item.time}}&nbsp</div>
+                <div class="location">{{item.location}}</div>
+            </div>
+            <div class="info">
+                <div class="ppl">{{item.pplnow}}/{{item.pplneed}}(now/need)&nbsp</div>
+                <div class="hostname">{{item.hostname}}&nbsp</div>
+                <div class="hostrate">{{item.hostrate}} star</div>
+            </div>
+            <button class="join" type="submit" name="join" value={{item.id}}> JOIN</button>
+        </div>
+        {% endfor %}
+    </div>
+    </form>
+    <a href="{{url_for('create_room')}}" class="float">
+        <i class="fa fa-plus my-float"></i>
+    </a>    
+
+</div>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>

@@ -49,8 +49,9 @@ class Room(db.Model):
     distype = db.Column(db.String(100), nullable = False)   # non-unique type of discount now in the Object Room
     hostid = db.Column(db.Integer,nullable = False)   # non-unique id of host of the Object Room
     isfull = db.Column(db.Boolean, nullable = False)    # non-unique isfull of the Object Room
+    chat = db.Column(db.Text, nullable = True) # non-unique chat of the Object Room
     # initialization
-    def __init__(self,event,date,time,location,description,pplneed,distype,hostid):
+    def __init__(self,event,date,time,location,description,pplneed,distype,hostid, chat = None):
         self.event = event  # create Object Room with event intialized
         self.date = date    # create Object Room with event date intialized
         self.time = time    # create Object Room with event time intialized
@@ -61,7 +62,7 @@ class Room(db.Model):
         self.distype = distype  # create Object Room with discount type intialized
         self.hostid = hostid # create Object Room with people needed intialized
         self.isfull = False # default Boolean of iffull in Object Room
-
+        self.chat = chat
         # increment 1 to host's roomnum
         User.query.get(self.hostid).roomnum += 1    # notice that at here we dont need to db.session.commit()
                                                     # since it will db.session.commit() after the Object Room is created

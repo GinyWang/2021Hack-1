@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Advanced Level Chat-Box UI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{url_for('static', filename = 'chatbox/chatbox.css')}}">
 </head>
 
@@ -16,6 +17,7 @@
         <div class="chat-box">
             <!-- client -->
             <div class="client">
+                <i class="fa fa-chevron-left" id="back" aria-hidden="true" style="color: white"></i>
                 <div class="client-info">
                     <h2>{{event}}</h2>
                     <p>online</p>

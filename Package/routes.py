@@ -1,4 +1,4 @@
-from flask import render_template, request , redirect, url_for, flash
+from flask import render_template, request , redirect, url_for, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import login_user, current_user, logout_user
 from Package import app, db
@@ -116,33 +116,34 @@ def create_room():
 @app.route("/chatbox/<roomid>", methods = ['POST', 'GET'])
 def chatbox(roomid):
 
-
+    print(roomid)
     room = Room.query.filter_by(id = roomid).first()
     raw_chat = room.chat
-    split_chat = []
     if raw_chat != None:
         split_chat = raw_chat.split("\n")
     else:
         split_chat = raw_chat
     data = []
-    for chat in split_chat:
-        idx = chat.find(':',)
-        chat_id = int(chat[:idx])
-        is_mychat = False
-        if chat_id == current_user.id:
-            is_mychat = True
-        chat_content = chat[idx+1:]
-        data.append((is_mychat,chat_content))
+    if split_chat != None:
+        for chat in split_chat:
+            idx = chat.find(':',)
+            chat_id = int(chat[:idx])
+            is_mychat = False
+            if chat_id == current_user.id:
+                is_mychat = True
+            chat_content = chat[idx+1:]
+            data.append((is_mychat,chat_content))
     
     if request.method == 'POST':
         chat = request.form['chat']
-        if len(raw_chat) == 0:
+        if raw_chat == None:
             room.chat = str(current_user.id) + ":" + chat
         else:
             room.chat = raw_chat + '\n' +str(current_user.id) + ":" + chat
         db.session.commit() 
+        return jsonify()
 
-    return render_template("chatbox.html", data = data, event = room.event)
+    return render_template("chatbox.html", data = data, event = room.event, identity = room.id)
 
 @app.route("/room_record", methods = ['POST', 'GET'])
 def room_record():

@@ -118,12 +118,22 @@ def chatbox(roomid):
 
     print(roomid)
     room = Room.query.filter_by(id = roomid).first()
+    
+    if request.method == 'POST':
+        chat = request.form['chat']
+        if room.chat == None:
+            room.chat = str(current_user.id) + ":" + chat
+        else:
+            room.chat = room.chat + '\n' +str(current_user.id) + ":" + chat
+        db.session.commit() 
     raw_chat = room.chat
+
     if raw_chat != None:
         split_chat = raw_chat.split("\n")
     else:
         split_chat = raw_chat
     data = []
+
     if split_chat != None:
         for chat in split_chat:
             idx = chat.find(':',)
@@ -133,15 +143,6 @@ def chatbox(roomid):
                 is_mychat = True
             chat_content = chat[idx+1:]
             data.append((is_mychat,chat_content))
-    
-    if request.method == 'POST':
-        chat = request.form['chat']
-        if raw_chat == None:
-            room.chat = str(current_user.id) + ":" + chat
-        else:
-            room.chat = raw_chat + '\n' +str(current_user.id) + ":" + chat
-        db.session.commit() 
-        return jsonify()
 
     return render_template("chatbox.html", data = data, event = room.event, identity = room.id)
 

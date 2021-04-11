@@ -25,7 +25,7 @@ def discount_select():
 def login_out():
     if current_user.is_authenticated:   # is_authenticated return True if now have a login current_user
         logout_user()
-        return redirect(url_for('discount_select'))   # TODO to check which page to direct
+        return redirect(url_for('login_out'))   # TODO to check which page to direct
     if request.method == 'POST':  # if POST
         if request.form['submit'] == 'sign_in':    # if get login submit
             username = request.form.get('account') # get username

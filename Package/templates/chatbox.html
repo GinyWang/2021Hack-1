@@ -38,7 +38,7 @@
             </div>
 
             <!-- input field section -->
-            <form action= "{{url_for('chatbox')}}" method="POST">
+            <form action= "{{url_for('chatbox', roomid = identity)}}" method="POST">
             <div class="chat-input">
                 <input type="text" placeholder="Enter Message" id="typing" name='chat'/>
                 <button class="send-btn" id="send" type ='submit' name = 'send' value="send">

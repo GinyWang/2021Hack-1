@@ -8,7 +8,7 @@
     <title>roomList</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel = "stylesheet" href="{{url_for('static', filename = 'room_record/room_record.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'room_record/room_record.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
@@ -17,7 +17,13 @@
     <div class="grid-container" id="container">
         {% for item in data %}
         <div class="grid-item">
-            <img src="img4.jpg">
+            {% if item.distype == "Accommodations" %}
+            <img src= "{{url_for('static', filename = 'room_record/image/Accommodations.jpg')}}">
+            {% elif item.distype == "Tickets" %}
+            <img src = "{{url_for('static', filename = 'room_record/image/Tickets.jpg')}}">
+            {% else %}
+            <img src = "{{url_for('static', filename = 'room_record/image/Cuisines.jpg')}}">
+            {% endif %}
             <div class="card-text">
                 <div class="bg">&nbsp</div>
                 <div class="event">{{item.event}}</div>
@@ -55,6 +61,7 @@
         {% endfor %}
     </div>
     </form>
+    
         
 
 </div>

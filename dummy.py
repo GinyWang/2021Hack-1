@@ -14,10 +14,10 @@ if __name__ == '__main__':
     db.create_all()
 
     # User parameters
-    name_list = ['admin','admin2','Kishan Doherty','Eddison Weston','Rhona Hensley',
-    'Yassin Charles','Donald Noel','Winnie Mclean','Vivaan Vincent','Maia Whitmore',
-    'Jazmin Espinosa','Mischa Lake','Natan Mills','Liya Harwood','Milena Hunt',
-    'Kailum Durham','Giorgia Lutz','Aleksander Roberson','Lylah Shelton','Layla-Rose Whiteley']
+    name_list = ['admin','admin2','Kishan','Eddison','Rhona',
+    'Yassin','Donald','Winnie','Vivaan','Maia',
+    'Jazmin','Mischa','Natan','Liya','Milena',
+    'Kailum','Giorgia','Aleksander','Lylah','Layla-Rose']
 
     password_list = ['hack','hack','hack','hack','hack',
     'hack','hack','hack','hack','hack',
@@ -74,12 +74,12 @@ if __name__ == '__main__':
 
     room_input('admin',0)
     room_input('admin',1)
-    room_input('Eddison Weston',2)
-    room_input('Giorgia Lutz',3)
+    room_input('Eddison',2)
+    room_input('Giorgia',3)
     room_input('admin',4)
-    room_input('Aleksander Roberson',5)
+    room_input('Aleksander',5)
     room_input('admin',6)
-    room_input('Aleksander Roberson',7)
-    room_input('Kishan Doherty',8)
+    room_input('Aleksander',7)
+    room_input('Kishan',8)
     room_input('admin2',9)
     db.session.commit()

@@ -16,20 +16,41 @@
     <form action="{{url_for('room_record')}}" method="post" id="CreateEvent">
     <div class="grid-container" id="container">
         {% for item in data %}
-        <div class="grid-item"> 
-            <div class="bg">&nbsp</div>
-            <div class="event">{{item.event}}</div>
-            <div class="info">
-                <div class="date">{{item.date}}&nbsp</div>
-                <div class="time">{{item.time}}&nbsp</div>
-                <div class="location">{{item.location}}</div>
+        <div class="grid-item">
+            <img src="img4.jpg">
+            <div class="card-text">
+                <div class="bg">&nbsp</div>
+                <div class="event">{{item.event}}</div>
             </div>
-            <div class="info">
-                <div class="ppl">{{item.pplnow}}/{{item.pplneed}}(now/need)&nbsp</div>
-                <div class="hostname">{{item.hostname}}&nbsp</div>
-                <div class="hostrate">{{item.hostrate}} star</div>
+            <button class="join" type="submit" name="join" value={{item.id}}>Enter Room</button>
+            <div class="info1">
+                <div class="stat">
+                    <div class="type">Date</div>
+                    <div class="date value">{{item.date}}&nbsp</div>
+                </div>
+                <div class="stat">
+                    <div class="type">Time</div>
+                    <div class="time value">{{item.time}}&nbsp</div>
+                </div>
+                <div class="stat">
+                    <div class="type">Location</div>
+                    <div class="location value">{{item.location}}</div>
+                </div>
             </div>
-            <button class="join" type="submit" name="enter" value={{item.id}}>Enter Room</button>
+            <div class="info2">
+                <div class="stat">
+                    <div class="type">People</div>
+                    <div class="ppl value">{{item.pplnow}}/{{item.pplneed}}(now/need)&nbsp</div>
+                </div>
+                <div class="stat">
+                    <div class="type">Host</div>
+                    <div class="hostname value">{{item.hostname}}&nbsp</div>
+                </div>
+                <div class="stat">
+                    <div class="type">Rate</div>
+                    <div class="hostrate place">{{item.hostrate}} star</div>
+                </div>
+            </div>
         </div>
         {% endfor %}
     </div>

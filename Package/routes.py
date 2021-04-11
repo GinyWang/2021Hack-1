@@ -17,25 +17,27 @@ def index():
 # discount_select page
 @app.route("/discount_select", methods = ['POST', 'GET'])
 def discount_select():
+    print("dis")
     return render_template("discount_select.html")
 
 # login page
 @app.route("/login_out", methods = ['POST', 'GET'])
 def login_out():
-    # if current_user.is_authenticated:   # is_authenticated return True if now have a login current_user
-    #     logout_user()
-    #     return redirect(url_for('discount_select'))   # TODO to check which page to direct
+    if current_user.is_authenticated:   # is_authenticated return True if now have a login current_user
+        logout_user()
+        return redirect(url_for('discount_select'))   # TODO to check which page to direct
     if request.method == 'POST':  # if POST
         if request.form['submit'] == 'sign_in':    # if get login submit
             username = request.form.get('account') # get username
             password = request.form.get('passwd') # get password
             user = User.query.filter_by(name=username).first()  # get User Object
+
             if user == None:
                 return redirect(url_for("login_out"))
             else:
                 if user.password == password:   # password correct 
                     login_user(user)    # login
-                    return redirect(url_for("discount_select"))   # TODO to check which page to direct
+                    return redirect(url_for('discount_select'))  # TODO to check which page to direct
 
 
         elif request.form['submit'] == 'sign_up':
@@ -45,7 +47,6 @@ def login_out():
             db.session.add(user)
             db.session.commit()
             return redirect(url_for("login_out"))
-
     return render_template("login.html")
 
 @app.route("/room_list", defaults = {'distype':''}, methods = ['POST', 'GET'])
@@ -55,7 +56,8 @@ def room_list(distype):
     Room_list = []
     if request.method == 'POST':
         if request.form.get('type'):
-            Room_list = Room.query.filter_by(distype = request.form['type']).all()
+            distype = request.form.get('type')
+            Room_list = Room.query.filter_by(distype = distype).all()
         
             
         # room id
@@ -86,7 +88,7 @@ def room_list(distype):
         for room in Room_list
     ]
     
-    return render_template("room_list.html", data = data)
+    return render_template("room_list.html", data = data, distype = distype)
     
 
 
@@ -116,7 +118,6 @@ def create_room():
 @app.route("/chatbox/<roomid>", methods = ['POST', 'GET'])
 def chatbox(roomid):
 
-    print(roomid)
     room = Room.query.filter_by(id = roomid).first()
     
     if request.method == 'POST':
@@ -149,7 +150,7 @@ def chatbox(roomid):
 @app.route("/room_record", methods = ['POST', 'GET'])
 def room_record():
 
-    if not current_user.is_authenticated:
+    if  not current_user.is_authenticated:
         return redirect(url_for('login_out'))
 
     if request.method == 'POST':
@@ -168,22 +169,9 @@ def room_record():
         "pplneed": room.pplneed,
         "hostname": User.query.filter_by(id = room.hostid).first().name,
         "hostrate": User.query.filter_by(id = room.hostid).first().rate,
-        "id" : room.id
+        "id" : room.id,
+        "distype": room.distype
         }
         for room in Room_list
-    ]      
-    # if not len(Room_list):
-    #     data = [
-    #     {"event" : "N/A",
-    #     "date": "N/A",
-    #     "time": "N/A",
-    #     "location": "N/A",
-    #     "pplnow": "N/A",
-    #     "pplneed": "N/A",
-    #     "hostname": "N/A",
-    #     "hostrate": "N/A",
-    #     "id" : "N/A"
-    #     }
-    # ]
-    
+    ]
     return render_template("room_record.html",data = data)

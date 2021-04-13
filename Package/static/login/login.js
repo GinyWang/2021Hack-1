@@ -69,7 +69,7 @@ function disableStylesheet(node) {
 function set_var() {
     reportWindowSize();
     if (w < 625) {
-        css_style.setAttribute('href', '/static/login/login.css');
+        css_style.setAttribute('href', '/static/login/login2.css');
         //document.body.style.background = 'red';
         //alert('small');
         //disableStylesheet(css_for_large);

@@ -17,7 +17,6 @@ def index():
 # discount_select page
 @app.route("/discount_select", methods = ['POST', 'GET'])
 def discount_select():
-    print("dis")
     return render_template("discount_select.html")
 
 # login page

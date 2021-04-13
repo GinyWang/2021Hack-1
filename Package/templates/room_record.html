@@ -1,7 +1,10 @@
-{% include 'navigation.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <link rel = "stylesheet" href="{{url_for('static',filename='navigation/navigation.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>navigation bar</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +15,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-    
+    <div class="topnav">
+        <a href="{{url_for('discount_select')}}" class="active">Welcome</a>
+        <!-- Navigation links (hidden by default) -->
+        <div id="myLinks">
+            <a href="{{url_for('room_record')}}">Room joined</a>
+            <a href="{{url_for('discount_select')}}">Discount</a>
+            <a href="#profile">My Profile</a>
+            <a href="{{url_for('login_out')}}">Log in / log out</a>
+        </div>
+        <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
     <form action="{{url_for('room_record')}}" method="post" id="CreateEvent">
     <div class="grid-container" id="container">
         {% for item in data %}
@@ -25,10 +41,10 @@
             <img src = "{{url_for('static', filename = 'room_record/image/Cuisines.jpg')}}">
             {% endif %}
             <div class="card-text">
-                <div class="bg">&nbsp</div>
+                <div class="bg"></div>
                 <div class="event">{{item.event}}</div>
             </div>
-            <button class="join" type="submit" name="join" value={{item.id}}>Enter Room</button>
+            <button class="join" type="submit" name="enter" value={{item.id}}>Enter Room</button>
             <div class="info1">
                 <div class="stat">
                     <div class="type">Date</div>
@@ -61,11 +77,10 @@
         {% endfor %}
     </div>
     </form>
-    
-        
 
-</div>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{url_for('static',filename='navigation/navigation.js')}}"></script>
+
 </body>
 </html>

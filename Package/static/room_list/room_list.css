@@ -45,18 +45,10 @@ img{
     margin-bottom: 0px;
 }
 
-.bg{
-    margin-top:0px;
-    font-size:28px;
-    text-align: center;
-}
-
 .event{
-    font-size: 20px;
-    margin-left: 10px;
-    margin-right: 10px;
-    color: grey;
-    font-size:15px;
+    margin-top: 20px;
+    color: rgb(80, 80, 80);
+    font-size:20px;
     font-weight: 300;
 }
 

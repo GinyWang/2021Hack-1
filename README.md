@@ -47,6 +47,20 @@ Finished:
 1. Finished Database Model with SQLite 
 2. Dummy data created (dummy.py)  
 
+# Summary for PPT
+## Database
+1. store user information  
+2. access database by using flask / flask_sqlalchemy  
+3. model.py construct object types for each information of our customers 
+
+## routes.py
+1. arrange website routes  
+2. design functions for each webpage  
+3. backend receive ```['GET', 'POST']``` method to request data from database  
+4. use Query to request data from database  
+5. send back data of each room_list / chatbox as dictionary type to frontend  
+6. HTML demonstrate results on webpage by using jinja
+
 ## Useful Link
 
 ### Recommend Download for DataBase LookUp

@@ -1,16 +1,33 @@
-{% include 'navigation.html' %}
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel = "stylesheet" href="{{url_for('static',filename='navigation/navigation.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>navigation bar</title>
     <link rel="stylesheet" href="{{url_for('static',filename = 'discount_select/discount_select.css')}}">
   </head>
   <body>
+    <div class="topnav">
+      <a href="{{url_for('discount_select')}}" class="active">Welcome</a>
+      <!-- Navigation links (hidden by default) -->
+      <div id="myLinks">
+          <a href="{{url_for('room_record')}}">Room joined</a>
+          <a href="{{url_for('discount_select')}}">Discount</a>
+          <a href="#profile">My Profile</a>
+          <a href="{{url_for('login_out')}}">Log in / log out</a>
+      </div>
+      <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+      </a>
+  </div>
     <form action="{{url_for('room_list')}}" method="post">
     <div class= "discount_type">
       <caption><b id="dis_title">Discounts</b></caption>
       <hr id="dsp">
       <ul id="dis_sel">
-        <li id="ac">
+        <li>
+          <button id="ac" type="submit" name = "type" value="Accommodations">
           <caption>
             <div class="a_t">
               <div id="img_ac">
@@ -19,35 +36,39 @@
               <p id="ac_title">Accommodations</p>
             </div>
           </caption>
-
+        </button>
         </li>
-        <li id="tk">
+        <li>
+          <button id="tk" type="submit" name = "type" value="Tickets">
           <caption>
             <div class="t_t">
               <div id="img_tk">
                 <img src="{{url_for('static', filename = 'discount_select/image/Tickets.jpg')}}">
               </div>
               <p id="tk_title">Tickets</p>
-              <!-- <p class="show_sign" onclick="tk_list_display()">◂</p> -->
             </div>
           </caption>
-       
+          </button>
         </li>
-        <li id="fd">
+        <li>
+          <button id="fd"  type="submit" name = "type" value="Cuisines" >
           <caption>
             <div class="f_t">
               <div id="img_fd">
                 <img src="{{url_for('static', filename = 'discount_select/image/Cuisines.jpg')}}">
               </div>
-              <p id="fd_title">Cuisines</p>
-              <!--<p class="show_sign" onclick="fd_list_display()">◂</p> -->
+              <p id="fd_title">Cusines</p>
             </div>
           </caption>
-          
+          </button>
         </li>
       </ul>
     </div>
   </form>
   </body>
+  <script src="{{url_for('static',filename='navigation/navigation.js')}}"></script>
   <script src="{{url_for('static', filename = 'discount_select/discount_select.js')}}"></script>
 </html>
+    
+    <form action="{{url_for('room_list')}}" method="post">
+ 

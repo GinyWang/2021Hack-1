@@ -16,7 +16,7 @@
         <div class="cont">
             <div class="form sign-in">
                 <h2>Welcome back,</h2>
-                <form method="post" action="{{ url_for('login_out') }}">
+                <form method="post" action="{{ url_for('login_out') }}" target="_self">
                     <label>
                         <span>Account</span>
                         <input type="text" name="account" required>
@@ -26,7 +26,7 @@
                         <input type="password" name="passwd" required>
                     </label>
                     <p class="forgot-pass"><a href="#" class="forgot-pass">Forgot password?</a></p>
-                    <button type="submit" class="submit" name="submit" value ="sign_in" formtarget="#">Sign In</button>
+                    <button type="submit" name="submit" value ="sign_in">Sign In</button>
                 </form>
             </div>
 
@@ -47,7 +47,7 @@
                 </div>
                 <div class="form sign-up">
                     <h2>Time to Adventure!</h2>
-                    <form method="post" action="{{url_for('login_out')}}">
+                    <form method="post" action="{{url_for('login_out')}}" target="_self">
                         <label>
                             <span>Account Name</span>
                             <input type="text" name="new_acc" required>
@@ -60,7 +60,7 @@
                             <span>Password</span>
                             <input type="password" name="new_passwd" required>
                         </label>
-                    <button type="submit" class="submit" name="submit" value="sign_up">Sign Up</button>
+                    <button type="submit" name="submit" value="sign_up">Sign Up</button>
                     </form> 
                 </div>
             </div>

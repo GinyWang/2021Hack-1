@@ -1,52 +1,41 @@
-
-
-body {
+form {
   background: rgb(154, 159, 163);
   display: grid;
+  grid-template-rows: 50px 400px;
   font-family: "Raleway", sans-serif;
   font-size: 40px;
   justify-content: center;
   text-align: center;
+  height: 100vh;
+  width: 100vw;
 }
 
 ul {
   display: table;
   margin: 0 auto;
-  padding: 0 auto;
+  padding: 0 ;
   text-align: center;
+}
+
+li {
+  list-style-type: none;
+}
+
+#dis_title {
+  font-size: 30px;
+  margin-top: 20px;
+  margin-left: 15px;
+  text-shadow: 0 0 3px 3px;
 }
 
 #ac, #tk, #fd {
   margin: 30px;
   border: none;
   background: none;
-  width: 850px;
+  width: 300px;
 }
 
-.discount_type {
-  min-width: 90%;
-  height: auto;
-  display: grid;
-  flex-direction: column;
-}
-
- li {
-   list-style-type: none;
- }
-
-#dis_title {
-  font-size: 85px;
-  margin-top: 20px;
-  margin-left: 15px;
-  text-shadow: 0 0 3px 3px;
-}
-
-#dsp{
-  width: 500px;
-  border-top: 3px solid black;
-}
-
-.a_t, .t_t, .f_t{
+.inner_t{
   display: flex;
   border-radius: 15px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -58,20 +47,21 @@ ul {
   transition: 0.4s;
 }
 
-.a_t:hover, .t_t:hover, .f_t:hover{
+.inner_t:hover{
   transform: scale(1.05);
   color: white;
   background-color: red;
 }
 
-p{
-  text-indent: 40px;
+.inner_t p{
+  text-indent: 20px;
   padding: 0 20px 20px 0;
+  font-size: 20px;
 }
 
 img{
   height: 100%;
-  max-width: 250px;
+  width: 90px;
   box-shadow: black 0 0 10px;
 }
 

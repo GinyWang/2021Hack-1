@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" href="{{url_for('static',filename='navigation/navigation.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>navigation bar</title>
     <link rel="stylesheet" href="{{url_for('static',filename = 'discount_select/discount_select.css')}}">
+    <title>discount_select</title>
   </head>
   <body>
     <div class="topnav">
@@ -20,55 +21,40 @@
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
           <i class="fa fa-bars"></i>
       </a>
-  </div>
+    </div>
     <form action="{{url_for('room_list')}}" method="post">
-    <div class= "discount_type">
-      <caption><b id="dis_title">Discounts</b></caption>
-      <hr id="dsp">
-      <ul id="dis_sel">
+      <b id="dis_title">Discounts</b>
+      <ul>
         <li>
           <button id="ac" type="submit" name = "type" value="Accommodations">
-          <caption>
-            <div class="a_t">
-              <div id="img_ac">
-                <img src="{{url_for('static', filename = 'discount_select/image/Accommodations.jpg')}}">
-              </div>
-              <p id="ac_title">Accommodations</p>
+            <div class="inner_t">
+              <div><img src="{{url_for('static', filename = 'discount_select/image/hotel.jpg')}}"></div>
+              <p>Accommodations</p>
             </div>
-          </caption>
-        </button>
+          </button>
         </li>
         <li>
           <button id="tk" type="submit" name = "type" value="Tickets">
-          <caption>
-            <div class="t_t">
-              <div id="img_tk">
-                <img src="{{url_for('static', filename = 'discount_select/image/Tickets.jpg')}}">
-              </div>
-              <p id="tk_title">Tickets</p>
+            <div class="inner_t">
+              <div><img src="{{url_for('static', filename = 'discount_select/image/Tickets.jpg')}}"></div>
+              <p>Tickets</p>
             </div>
-          </caption>
           </button>
         </li>
         <li>
           <button id="fd"  type="submit" name = "type" value="Cuisines" >
-          <caption>
-            <div class="f_t">
-              <div id="img_fd">
-                <img src="{{url_for('static', filename = 'discount_select/image/Cuisines.jpg')}}">
-              </div>
-              <p id="fd_title">Cusines</p>
+            <div class="inner_t">
+              <div><img src="{{url_for('static', filename = 'discount_select/image/Cuisines.jpg')}}"></div>
+              <p>Cusines</p>
             </div>
-          </caption>
           </button>
         </li>
       </ul>
-    </div>
-  </form>
+    </form>
   </body>
   <script src="{{url_for('static',filename='navigation/navigation.js')}}"></script>
   <script src="{{url_for('static', filename = 'discount_select/discount_select.js')}}"></script>
 </html>
     
-    <form action="{{url_for('room_list')}}" method="post">
+ 
  

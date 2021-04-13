@@ -2,7 +2,7 @@
 
 body {
   background: rgb(154, 159, 163);
-  display: flex;
+  display: grid;
   font-family: "Raleway", sans-serif;
   font-size: 40px;
   justify-content: center;
@@ -18,6 +18,9 @@ ul {
 
 #ac, #tk, #fd {
   margin: 30px;
+  border: none;
+  background: none;
+  width: 850px;
 }
 
 .discount_type {
@@ -52,11 +55,11 @@ ul {
   background-color: white;
   box-shadow: black 0px 5px 5px;
   overflow: hidden ;
-  transition: 0.5s;
+  transition: 0.4s;
 }
 
 .a_t:hover, .t_t:hover, .f_t:hover{
-  transform: scale(1.15);
+  transform: scale(1.05);
   color: white;
   background-color: red;
 }
@@ -71,3 +74,4 @@ img{
   max-width: 250px;
   box-shadow: black 0 0 10px;
 }
+

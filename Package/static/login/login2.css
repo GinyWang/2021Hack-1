@@ -2,22 +2,18 @@ body {
     font-family: 'Adamina','Georgia','Times New Roman','Times';
     background-image: url("image/hk_background.jpg");
 }
-/*disapp{
-    display:none;
-}*/
-
 .s--signup {
     font-size: 60px;
     background-color:blue;
 }
 
 div.cont {
-    width: 80%;
+    width: 70%;
     margin: 30px auto 30px;
     padding:30px;
     background-color: #ffffff;
     border: 0;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 .form h2 {
     position:relative;
@@ -46,35 +42,35 @@ div.cont {
     border: 20px 0px 20px;
     border-radius: 30px;
     padding: 5px 8px 5px;
-    background: #aba9a9;
+    background: #d1cfcf;
     text-transform: uppercase;
 }
 .submit {
     border: 20px 0px 20px;
     border-radius: 30px;
     padding: 5px 8px 5px;
-    background: #aba9a9;
+    background: #d1cfcf;
     text-transform: uppercase;
     margin: 5px auto 0px;
     display: block;
     text-align: center;
     font-size: 10px;
 }
-.img__btn:hover, .submit:hover {
-        color: #00BFFF;
-        border-color: #00BFFF;
+.img__btn:hover, button:hover {
+        color:#00fbff;
+        border-color: #00fbff;
         cursor:pointer;
  }
 label {
     display: block;
     width: var(--imgW);
-    margin: 25px auto 0;
+    margin: 12px auto 12px;
     text-align: center;
 }
 
 label span {
         font-size: 12px;
-        color: #aba9a9;
+        color: #d1cfcf;
         text-transform: uppercase;
 }
 
@@ -102,9 +98,9 @@ input, button {
     margin-top: 15px;
     text-align: center;
     font-size: 12px;
-    color: #aba9a9;
+    color: #d1cfcf;
 }
 .forgot-pass:hover {
-        color: #00BFFF;
+        color: #00fbff;
  }
 

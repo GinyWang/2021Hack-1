@@ -20,21 +20,26 @@ pip install Flask-Login
 ## Introduction  
 #### Initiate database
 + dummy.py => create database
-+ app.py => initiate our program  
-#### Navigation Bar  
-+ you can find every webpage you might need
++ app.py => initiate our program( url generated )  
++ click the url generated in the terminal  
 #### Login  
-+ click the url generated in the terminal
-+ routes.py check if valid account  
++ login.html send form to backend for verifying purpose
++ routes.py access to backend and exam if is valid account  
   => if not, create account  
-#### Create Room  
-+ type in user information  
-+ save into database  
+#### Navigation Bar  
++ you can find every webpage you might need  
+#### Create room    
++ fill up blank for room information  
++ create_room.html send information to backend  
++ routes.py save information into database for further usage
 + number of people in the room +1  
 #### Join the Room  
-+ chat with the everyone in the room  
++ click JOIN button to enter the room you are interested in  
++ room_list.html send form back to routes.py with specific room id  
 + leave the room by clicking the white arrow button and return to the main room list  
 #### Chat  
 + send your message by clicking the send button  
-#### Log out  
-+ find log out in the navigation bar
++ chatbox.html send a form with specific room id to routes.py  
++ backend save the chat record into database  
+#### log out  
++ find log out button in navigation bar  

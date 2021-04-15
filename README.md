@@ -55,7 +55,7 @@ pip install Flask-Login==0.5.0
 ### Chat room page  
 + We provide past chat record for users
 + User may send his message ***by clicking the ```send``` icon***
-+ User may leave the room by clicking the ```white arrow ``` icon and return to the previous discount room list   
++ User may leave the room ***by clicking the ```white arrow``` icon*** and return to the previous discount room list   
 
 
 ### Joined record page

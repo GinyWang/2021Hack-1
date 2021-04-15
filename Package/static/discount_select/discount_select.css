@@ -1,13 +1,16 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Adamina','Georgia','Times New Roman','Times';
+}
 form {
-  background: rgb(154, 159, 163);
-  display: grid;
-  grid-template-rows: 50px 400px;
-  font-family: "Raleway", sans-serif;
-  font-size: 40px;
-  justify-content: center;
-  text-align: center;
-  height: 100vh;
-  width: 100vw;
+    background: #eef7fe;
+    display: grid;
+    grid-template-rows: 50px 400px;
+    font-size: 40px;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    width: 100vw;
 }
 
 ul {
@@ -38,7 +41,6 @@ li {
 .inner_t{
   display: flex;
   border-radius: 15px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 60px;
   color: rgb(80,80,80);
   background-color: white;
@@ -50,7 +52,7 @@ li {
 .inner_t:hover{
   transform: scale(1.05);
   color: white;
-  background-color: red;
+  background-color: #90ccfa;
 }
 
 .inner_t p{

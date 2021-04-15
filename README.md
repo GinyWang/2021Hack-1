@@ -62,6 +62,15 @@ pip install Flask-Login==0.5.0
 + The page is similar to Join room page
 + ***User is able to rejoin the chat room by clicking ```enter``` button***
 
-# License  
-[MIT](https://choosealicense.com/licenses/mit/)  
+# Open Source
++ Font-Awesome 4.7.0
++ Google Fonts
++ Bootstrap 4.0.0
++ jQuery 3.5.1
++ Popper JS 1.16.0
++ Font-Awesome 5.15.3
++ Bootstrap 4.5.2
+
+# License                                                        
+[Apache License Version 2.0, January 2004](http://www.apache.org/licenses/)  
   

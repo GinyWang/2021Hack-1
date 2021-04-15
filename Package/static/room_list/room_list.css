@@ -1,7 +1,10 @@
-*{
+* {
     box-sizing: border-box;
+    font-family: 'Adamina','Georgia','Times New Roman','Times';
 }
-
+body {
+    background: #eef7fe;
+}
 .grid-container {
     display: grid;
     grid-template-columns: 1fr;
@@ -14,7 +17,7 @@
     
 }
 
-.grid-item{
+.grid-item {
     display: grid;
     grid-template-columns: 300px;
     grid-template-rows: 150px 100px 40px 40px 40px;
@@ -25,7 +28,8 @@
     margin-bottom: auto;
     margin-top: auto;
     border-radius: 18px;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    box-shadow: 0px 10px 15px #90ccfa;
+    background:#fff;
 }
 
 img{
@@ -53,23 +57,30 @@ img{
     text-align: center;
 }
 
-.join{
+.join {
     grid-area: join;
     width: 80%;
-    margin:auto;
+    margin: auto;
     border-radius: 3px;
     border: none;
     margin-bottom: 20px;
-    background-color: rgb(6, 187, 6);
+    background-color: #90ccfa;
+    cursor: pointer;
     color: white;
+    box-shadow: 0 0 9px #999;
+    font-weight: 700;
 }
+.join:active {
+     background-color: #00fbff;
+     transform: translateY(4px);
+ }
+
 
 .info1{
     grid-area: stats1; 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
-    background: rgb(255, 77, 7)
 }
 
 .info2{
@@ -79,7 +90,14 @@ img{
     grid-template-rows: 1fr;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
-    background: rgb(255, 77, 7)
+}
+
+.odd{
+    background-color:#0043c1;
+}
+
+.even {
+    background-color: #0054f1;
 }
 
 .stat {
@@ -91,56 +109,29 @@ img{
 }
 
 .type{
-    font-size: 12px;
+    font-size: 13px;
+    font-weight:bolder;
 }
-
-.hostname{
+.value {
     margin-left: 5px;
     margin-right: 5px;
     font-size: 10px;
+    color: #d1cfcf;
 }
 
-.date{
-    margin-left: 5px;
-    margin-right: 5px;
-    font-size: 10px;
-}
 
-.time{
-    margin-left: 5px;
-    margin-right: 5px;
-    font-size: 10px;
-}
 
-.location{
-    margin-left: 5px;
-    margin-right: 5px;
-    font-size: 10px;
-}
-
-.ppl{
-    margin-left: 5px;
-    margin-right: 5px;
-    font-size: 10px;
-}
-
-.hostrate{
-    margin-left: 5px;
-    margin-right: 5px;
-    font-size: 10px;
-}
-
-.float{
-	position:fixed;
-	width:60px;
-	height:60px;
-	bottom:40px;
-	right:40px;
-	background-color: blue;
-	color:#FFF;
-	border-radius:50px;
-	text-align:center;
-	box-shadow: 2px 2px 3px #999;
+.float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #90ccfa;
+    color: #0043c1;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 3px 2px rgba(200,200,255,0.5);
 }
 
 .my-float{

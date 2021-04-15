@@ -1,8 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel = "stylesheet" href="{{url_for('static',filename='navigation/navigation.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='navigation/navigation.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Adamina">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,29 +44,29 @@
             </div>
             <button class="join" type="submit" name="join" value={{item.id}}> JOIN</button>
             <div class="info1">
-                <div class="stat">
+                <div class="stat odd">
                     <div class="type">Date</div>
                     <div class="date value">{{item.date}}&nbsp</div>
                 </div>
-                <div class="stat">
+                <div class="stat even">
                     <div class="type">Time</div>
                     <div class="time value">{{item.time}}&nbsp</div>
                 </div>
-                <div class="stat">
+                <div class="stat odd">
                     <div class="type">Location</div>
                     <div class="location value">{{item.location}}</div>
                 </div>
             </div>
-            <div class="info2">
-                <div class="stat">
+            <div class="info2 ">
+                <div class="stat even">
                     <div class="type">People</div>
                     <div class="ppl value">{{item.pplnow}}/{{item.pplneed}}(now/need)&nbsp</div>
                 </div>
-                <div class="stat">
+                <div class="stat odd">
                     <div class="type">Host</div>
                     <div class="hostname value">{{item.hostname}}&nbsp</div>
                 </div>
-                <div class="stat">
+                <div class="stat even">
                     <div class="type">Rate</div>
                     <div class="hostrate place">{{item.hostrate}} star</div>
                 </div>

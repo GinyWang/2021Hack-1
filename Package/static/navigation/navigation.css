@@ -1,4 +1,8 @@
 /* Style the navigation menu */
+* {
+    box-sizing: border-box;
+    font-family: 'Adamina','Georgia','Times New Roman','Times';
+}
 body{
     padding: 0;
     margin: 0;
@@ -42,6 +46,6 @@ body{
   
   /* Style the active link (or home/logo) */
   .active {
-    background-color: #4CAF50;
+    background-color: #90ccfa;
     color: white;
   }

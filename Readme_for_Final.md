@@ -37,7 +37,7 @@ pip install Flask-Login
 + click JOIN button to enter the room you are interested in  
 + room_list.html send form back to routes.py with specific room id  
 + leave the room by clicking the white arrow button and return to the main room list  
-#### Chat  
+#### Chatbox  
 + send your message by clicking the send button  
 + chatbox.html send a form with specific room id to routes.py  
 + backend save the chat record into database  

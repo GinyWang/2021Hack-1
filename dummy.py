@@ -14,10 +14,10 @@ if __name__ == '__main__':
     db.create_all()
 
     # User parameters
-    name_list = ['admin','admin2','Kishan','Eddison','Rhona',
-    'Yassin','Donald','Winnie','Vivaan','Maia',
+    name_list = ['admin','Giny','Bungy', 'Philip', 'William', 'Kishan','Eddison','Rhona',
+    'Yassin','Donald','Giorgia','Vivaan','Jason',
     'Jazmin','Mischa','Natan','Liya','Milena',
-    'Kailum','Giorgia','Aleksander','Lylah','Layla-Rose']
+    'Kailum','Aleksander']
 
     password_list = ['hack','hack','hack','hack','hack',
     'hack','hack','hack','hack','hack',
@@ -27,8 +27,8 @@ if __name__ == '__main__':
 
 
     # Room parameters   
-    event_list = ['LKF Hotel','PizzaHutt Hotel','Diseny','Ocean Park','KFC',
-    'HALL22222','Conference Lodge','McDonald','Burger King', 'SUbWAY']
+    event_list = ["Let's enjoy in LKF Hotel","Welcome PizzaHutt Hotel","Have fun in Diseny","Swim in Ocean Park","Have a feast in KFC",
+    "Welcome to HALL22222","Spend a night in Conference Lodge","McDonald is your best choice","Enjoy your hamburger in Burger King", "Enjoy fresh in SUbWAY"]
     
     date_list = ['2021-05-12','2021-04-18','2021-12-01','2031-04-23','2023-04-21',
     '2023-06-01','2021-12-31','2021-05-13','2021-04-15','2021-09-01']
@@ -73,13 +73,13 @@ if __name__ == '__main__':
         )
 
     room_input('admin',0)
-    room_input('admin',1)
-    room_input('Eddison',2)
+    room_input('Giny',1)
+    room_input('Jason',2)
     room_input('Giorgia',3)
-    room_input('admin',4)
+    room_input('Bungy',4)
     room_input('Aleksander',5)
-    room_input('admin',6)
-    room_input('Aleksander',7)
+    room_input('William',6)
+    room_input('Vivaan',7)
     room_input('Kishan',8)
-    room_input('admin2',9)
+    room_input('Philip',9)
     db.session.commit()
